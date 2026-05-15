@@ -2,29 +2,34 @@
 // to run: cd <q.exe directiony>, then q server_script.q
 
 // setup table definitions
-trades:([]time:`timestamp$();sym`symbol$();price`float$();size:`int$())
+trades:([]time:`timestamp$();sym:`symbol$();price:`float$();size:`int$())
 
-// data generation + timer loop
-tickers: `AAPL`GOOG`TSLA
+// data generation
+tickers:`AAPL`GOOG`TSLA
 
-randomTrade: {
-  sym: syms ? 1;      / pick random symbol from tickers
-  price: 10 + 10?1f;  / random price from 10 to 20
-  size: 1 + 100?100;  / random trade size
-  (`trades insert (
-    .z.p;        / utc timestamp$
-	sym; price; size))
-}
+n:30;
+dt: n?1000;
+t:.z.p + sums dt; / sums computes the cumulative sum (running total) of a list (in this case dt)
 
-.z.ts: { randTrade[]; show last trade; }
+rows:([]
+  time:t;
+  sym:n?tickers;
+  price:100 + 10 * n?1f;
+  size:1 + n?100
+  )
+`trades insert rows
 
-// set timer
-interval: 1000 / 1k milliseconds
-\t interval
+// define function
+emaFunction:{[table;ticker;n]
+  show "running EMA";
+  pricelist:exec price from table where sym=ticker;
+  ma: ema[n;pricelist];
+  ma} / returns ma
+
+/ output:
+/ 104.1232 103.9699 108.8848 109.1767 106.3239 101.512 98.97826 115.548 102.8849 98.58471 108.2363 102.8615
 
 // start server
 port: 5000
-system "p", string port
-  
-  
-  
+system "p ", string port
+
