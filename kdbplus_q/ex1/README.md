@@ -18,7 +18,7 @@ There are several ways you can do this:
 - Alternatively, you can get a whole bunch of programming language integrations https://code.kx.com/q/interfaces/c-client-for-q/ under `Interfaces->Languages->..` on the left hand side. Then you'd need to glue data from endpoint api integrations like https://data.bloomberglp.com/professional/sites/10/2017/03/BLPAPI-Core-Developer-Guide.pdf or https://finazon.io/dataset/us_stocks_essential/docs/api/latest# to q table insertion statements.
 
 
-Gluing APIs is out of the scope of this exercise, we'll make a script that generates trading data. See server_script.q
+Gluing APIs is out of the scope of this exercise, we'll make a script that generates trading data. See `server_script.q` and run it via `<q dir>>q server_script.q`
 
 ```
 // setup table definitions
