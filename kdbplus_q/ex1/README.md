@@ -1,5 +1,5 @@
 
-# Exercise: Trading data pulling & analysis
+# Exercise: Trading data generation & analysis
 
 Using kdb+ and q,
 
