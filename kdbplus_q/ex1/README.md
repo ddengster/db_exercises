@@ -57,7 +57,7 @@ emaFunction:{[table;ticker;n]
 
 Then we open a new q client, connect , and use the returned connection 'h' to call the function:
 
-[!](ss1.PNG)
+![](ss1.PNG)
 
 `h:hopen `:localhost:5000`
 
@@ -65,7 +65,7 @@ Then we open a new q client, connect , and use the returned connection 'h' to ca
 
 ### Afterthoughts
 
-- kdb+ and q are tough languages to learn; usability and error messages could be improved. A good question is whether the setbacks are worth the increase in performance.
+- kdb+ and q are tough languages to learn; usability and error messages could be improved. If you try to use AI to fill in the gaps, it isn't quiet there yet. A good question to ask is whether the setbacks are worth the increase in performance.
 
 ### References
 
