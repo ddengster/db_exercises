@@ -143,6 +143,10 @@ SELECT
 FROM trading_prices_hourly;
 ```
 
+Output should be something like this:
+
+![](ss1.PNG)
+
 #### Executing
 
 `psql -d "postgres://postgres:postgres@127.0.0.1:5432/" -f table_setup.sql`
